@@ -1,0 +1,82 @@
+1. a:c::/64
+2. ::/0
+3. fe80::a:0:0:f/64
+4.2002:6500:0:3000::/64
+5. ::1/128
+6.ff00::beef:a00a:aa0:0:0/8
+7.2001:db8:1::ab9:C0A8:102/64
+8. 1200:0:130F::09C0876A:100B/64
+9.2041:1000:140F::875B:1B/96
+10. 2001:4860:4860:4860::8888/128
+
+IPv^ Subnetting:
+
+ex. Design an IPv6 Network for Accenture.com using face:cafe:fafa:fefe::/64
+to 50 Offices (Subnets)
+
+Rivan Method CAI
+
+CovertMo: 50 Office = 6 bits
+AddMo: /64 + 6 = /70
+IchambaMoPattern:
+
+	8 4 2 1		8 4 2 1		8 4 2 1		8 4 2 1
+
+1st 	0 0 0 0		0 0  (the rest here and further - wapakels)
+	face:cafe:fafa:fefe:0000::/70
+
+2nd	0 0 0 0		0 1
+	face:cafe:fafa:fefe:0400::/70
+
+3rd	0 0 0 0		1 0
+	face:cafe:fafa:fefe:0800::/70
+
+4th	0 0 0 0		1 1
+	face:cafe:fafa:fefe:0c00::/70
+
+5th	0 0 0 1		0 0
+	face:cafe:fafa:fefe:1000::/70
+
+6th	0 0 0 1		0 1
+	face:cafe:fafa:fefe:1400::/70
+
+7th	0 0 0 1		1 0
+	face:cafe:fafa:fefe:1800::/70
+
+8th	0 0 0 1		1 1
+	face:cafe:fafa:fefe:1c00::/70
+
+9th	0 0 1 0		0 0
+	face:cafe:fafa:fefe:2000::/70
+
+10th	0 0 1 0		0 1
+	face:cafe:fafa:fefe:2400::/70
+
+:
+:
+:
+(and all the way to 50th OFfice/Subnet)
+
+~Implement
+conf t
+ipv6 unicast-routing
+int lo1
+ ipv6 add face:cafe:fafa:fefe::aaaa/70
+int lo2
+ ipv6 add face:cafe:fafa:fefe:0400::aaaa/70
+int lo3
+ ipv6 add face:cafe:fafa:fefe:0800::aaaa/70
+int lo4
+ ipv6 add face:cafe:fafa:fefe:0c00::aaaa/70
+int lo5
+ ipv6 add face:cafe:fafa:fefe:1000::aaaa/70
+int lo6
+ ipv6 add face:cafe:fafa:fefe:1400::aaaa/70
+int lo7
+ ipv6 add face:cafe:fafa:fefe:1800::aaaa/70
+int lo8
+ ipv6 add face:cafe:fafa:fefe:1c00::aaaa/70
+int lo9
+ ipv6 add face:cafe:fafa:fefe:2000::aaaa/70
+int lo10
+ ipv6 add face:cafe:fafa:fefe:2400::aaaa/70
