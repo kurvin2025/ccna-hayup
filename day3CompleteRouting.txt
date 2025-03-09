@@ -6,7 +6,7 @@ Day3 Network Engineer
 3.1.d Next hop
 3.1.e Administrative distance
 3.1.f Metric
-3.1.g Gateway of last resort
+3.1.g Gateway of last resort - Cisco, Microsoft - Default Gateway, Linux - Default GW -- 0.0.0.0 0.0.0.0 /0
 
 3.2 Determine how a router makes a forwarding decision by default
 3.2.a Longest prefix match
@@ -87,7 +87,7 @@ int e1/0
    switchport access vlan 20
    do show vlan brief
 A1: lipat vlan from v1 to v10
- config t
+config t
 int e0/0
  switchport mode access
  switchport access vlan 10
